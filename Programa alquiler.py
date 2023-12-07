@@ -1,8 +1,6 @@
 #%% EJERCICIO 1 y 2
 
-import sys # Utilizaremos sys.exit() en el caso en que haya que finalizar el programa
-           
-# Creamos una lista para cada tabla del ejercicio, que contiene dentro diccionarios.
+import sys 
 
 vehiculos = [
     {"Modelo": "Kia Picanto", "Categoría": "A", "Plazas": 5, "Mínimo": 1, "Coste": 8, "Descuento": 0.1, "Días min dcto": 4},
@@ -40,8 +38,6 @@ def precio_final(vehiculo, plazas, dias):
     return coste_total
 
 
-# Utilizamos bucles while para tratar de hacer el programa robusto ante comandos erróneos  (EJERCICIO 2 b))
-
 while True:
     # Comenzamos preguntando al usuario por el período de alquiler
     d1 = int(input("\nIntroduzca el día en que desea recoger el vehículo (número del mes): "))
@@ -71,7 +67,7 @@ while True:
 # Creamos una lista, donde iremos añadiendo diccionarios con los vehículos que encajan en esos requerimientos
 opciones = []
 
-for x in vehiculos:     # x señala a cada uno de los diccionarios de la lista
+for x in vehiculos:     
     if x["Plazas"] >= plazas and x["Mínimo"] <= dias:           
         precio_total = precio_final(x, plazas, dias)
         opciones.append({"Modelo": x["Modelo"], "Precio final": precio_total, "Categoría": x["Categoría"], "Plazas": x["Plazas"]})
@@ -81,7 +77,7 @@ for x in vehiculos:     # x señala a cada uno de los diccionarios de la lista
 if len(opciones) > 1:
     
     # Calculamos la opción más económica de la lista a través de la función min():
-    economic = min(opciones, key=lambda x: x["Precio final"])     # Esto me crea un diccionario con la opción más barata
+    economic = min(opciones, key=lambda x: x["Precio final"])     
     x_economic = economic["Modelo"]    # Extraigo el nombre del vehículo más barato
     p_economic = economic["Precio final"]    # Extraigo el precio del vehículo más barato
     
@@ -158,7 +154,7 @@ if "4" in extra:
     eleccion_extras.append("Cofre de equipaje en techo")
 
 
-# EJERCICIO 2 a). Insistimos para que el usuario escoja el extra del ambientador.
+# Insistimos para que el usuario escoja el extra del ambientador.
 if "3" not in extra:
     print("\n\nAntes de finalizar la reserva, ¿está seguro de que no desea adquirir el extra de 'Ambientador de pino en retrovisor'?")
     ambientador = input("\nEscriba 1 para incluirlo en su reserva, o intro para continuar sin hacerlo: ")
@@ -171,8 +167,8 @@ if "3" not in extra:
 
 for x in opciones:
     if x["Modelo"] == eleccion:
-        p = x["Precio final"]   # Tomamos el precio del vehículo elegido
-        
+        p = x["Precio final"]  
+               
         # Guardamos en variables también la categoría y plazas para luego usarlas en el recibo:
         categoria_recibo = x["Categoría"]
         plazas_recibo = x["Plazas"]
@@ -182,7 +178,7 @@ for x in extras:
         p += x["Coste"]    # Sumamos el precio de los extras
 
 if "Cancelación gratuita" in eleccion_extras:
-    p += 2*(dias-1)  # Hacemos una condición adicional para incluir el precio de la cancelación gratuita, que no es un precio único sino un precio por día
+    p += 2*(dias-1)  # Hacemos una condición adicional para incluir el precio de la cancelación gratuita
 
 # Calculamos el IVA y lo sumamos todo:
 IVA = 0.21 * p
@@ -223,10 +219,9 @@ if confirmacion_final == "OK" or confirmacion_final == "ok":
     \nPara cualquier consulta no dude en contactarnos.''')
     
     
-    # EJERCICIO 2 c). Creación de un archivo con todas las reservas realizadas
+    # Creación de un archivo con todas las reservas realizadas
     nombre_archivo = "registro.txt"
    
-    # Usamos "a" para emplear el modo append, y se vayan incluyendo todas las reservas sin sobreescribirse
     with open(nombre_archivo, "a") as archivo:
         archivo.write("* RESERVA nº " + num_reserva) 
         archivo.write("\nNombre: " + nombre)
