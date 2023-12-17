@@ -1,2 +1,1 @@
-Ejercicio realizado sobre una herramienta diseñada para un negocio de alquiler de vehículos, 
-con una interfaz para que los usuarios elijan el producto que desean y se les indique el precio final.
+Herramienta de alquiler de vehículos, diseñada para ofrecer una experiencia intuitiva y eficiente a los usuarios. Esta aplicación proporciona una interfaz fácil de usar que permite a los clientes seleccionar el vehículo deseado y los extras, y conocer de manera transparente el precio final de su alquiler.
